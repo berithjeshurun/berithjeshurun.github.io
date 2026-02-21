@@ -9,7 +9,8 @@
         "view" : "knvectis.png",
         "deps": [
             "RAG",
-            "Knowledge Engine"
+            "Knowledge Engine",
+            "Library"
         ],
         "desc": "A modular traversal and knowledge execution engine for structured object hierarchies.",
         "link_repo": "https://github.com/berithjeshurun/knvectis",

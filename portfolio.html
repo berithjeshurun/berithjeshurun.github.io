@@ -844,6 +844,53 @@
             { id: 'philosophy', name: 'Logic / PHILOSOPHY', icon: 'book-open', label: 'MOD_05', c: 4 },
             { id: 'contact', name: 'Signal / ABOUT', icon: 'message-square', label: 'MOD_06', c: 5 }
         ];
+        async function getData() {
+            const response = await fetch("data/projects.json");
+            const data = await response.json();
+
+            const wrapper = document.createElement("div");
+            wrapper.style.cursor = "pointer";
+
+            const title = document.createElement("div");
+            title.className = "section-title";
+            title.innerText = "MISSION_PORTFOLIO";
+
+            const grid = document.createElement("div");
+            grid.className = "project-grid";
+
+            function createProjectItem(p) {
+                const item = document.createElement("div");
+                item.className = "project-item";
+
+                item.addEventListener("click", ()=> {
+                    localStorage.setItem("glitchos-redirect:projects", p.id);
+                    window.location.href = "https://berithjeshurun.github.io/projects.html";
+                })
+
+                const h3 = document.createElement("h3");
+                h3.innerText = p.name;
+
+                const desc = document.createElement("p");
+                desc.innerText = p.desc;
+
+                const tags = document.createElement("div");
+                tags.className = "tag-row";
+
+                p.deps.forEach(t => {
+                    const span = document.createElement("span");
+                    span.className = "tag";
+                    span.innerText = t;
+                    tags.appendChild(span);
+                });
+
+                item.append(h3, desc, tags);
+                return item;
+            }
+            data.forEach(p => grid.appendChild(createProjectItem(p)));
+            wrapper.append(title, grid);
+            return wrapper;
+        }
+        var PJX = getData();
 
         const contentData = {
             hero: `
@@ -896,26 +943,7 @@
                     </ul>
                 </div>
             `,
-            projects: `
-                <div class="section-title">MISSION_PORTFOLIO</div>
-                <div class="project-grid">
-                    <div class="project-item">
-                        <h3>LightHouse</h3>
-                        <p>Hybrid desktop research workstation built with Python and QtWebEngine. Offline-first philosophy with high-contrast UI.</p>
-                        <div class="tag-row"><span class="tag">Python</span><span class="tag">Qt</span><span class="tag">Webview</span></div>
-                    </div>
-                    <div class="project-item">
-                        <h3>PySeed</h3>
-                        <p>Multimodal tensor engine supporting image, audio, and bounding box abstractions with strict type enforcement.</p>
-                        <div class="tag-row"><span class="tag">Tensors</span><span class="tag">Data</span><span class="tag">Automation</span></div>
-                    </div>
-                    <div class="project-item">
-                        <h3>Insight.ai</h3>
-                        <p>Flask-based prototype that evolved into LightHouse’s current hybrid architecture. Real-time data processing.</p>
-                        <div class="tag-row"><span class="tag">Flask</span><span class="tag">API</span><span class="tag">NLP</span></div>
-                    </div>
-                </div>
-            `,
+            projects: PJX,
             philosophy: `
                 <div class="section-title">SYSTEM_IDEOLOGY</div>
                 <div class="content-card">
@@ -937,7 +965,6 @@
                 </div>
             `
         };
-
         let currentSection = 'hero';
         let sfxEnabled = true;
 
@@ -957,24 +984,28 @@
             document.getElementById('favicon').setAttribute('href', `data:image/svg+xml;base64,${encodedSvg}`);
         }
 
-        function initNav() {
+        async function initNav() {
             const list = document.getElementById('nav-list');
             list.innerHTML = navSections.map((s, idx) => `
-                <div class="nav-milestone" id="nav-${s.id}" onclick="navigateTo('${s.id}')">
-                    <div class="milestone-icon"><i data-lucide="${s.icon}"></i></div>
-                    <div class="milestone-info">
-                        <div style="font-size: 0.45rem; opacity: 0.5;">${s.label}</div>
-                        <div>${s.name}</div>
-                    </div>
-                </div>
-            `).join('');
-            navigateToTheme(localStorage.getItem('glitchos.theme'))
+        <div class="nav-milestone" id="nav-${s.id}" onclick="navigateTo('${s.id}')">
+            <div class="milestone-icon"><i data-lucide="${s.icon}"></i></div>
+            <div class="milestone-info">
+                <div style="font-size: 0.45rem; opacity: 0.5;">${s.label}</div>
+                <div>${s.name}</div>
+            </div>
+        </div>
+    `).join('');
+
+            const PJX = await getData();
+            contentData.projects = PJX;
+
+            navigateToTheme(localStorage.getItem('glitchos.theme'));
             lucide.createIcons();
             navigateTo('hero');
             updateFavicon();
 
             if ("glitchos-redirect:portfolio" in localStorage) {
-                navigateTo(localStorage.getItem("glitchos-redirect:portfolio"))
+                navigateTo(localStorage.getItem("glitchos-redirect:portfolio"));
                 localStorage.removeItem("glitchos-redirect:portfolio");
             }
         }
@@ -987,21 +1018,16 @@
             document.getElementById(`nav-${id}`).classList.add('active');
             document.getElementById('bread-section').innerText = id.toUpperCase();
 
-            const tracker = document.getElementById('rocketTracker');
-            const fill = document.getElementById('pathFill');
-            const milestone = document.getElementById(`nav-${id}`);
-            const aside = document.querySelector('.timeline-aside');
+            const consoleEl = document.getElementById('mission-console');
+            consoleEl.innerHTML = "";
 
-            const mRect = milestone.getBoundingClientRect();
-            const aRect = aside.getBoundingClientRect();
-            const bottomPos = aRect.bottom - mRect.bottom + (mRect.height / 2);
+            const content = contentData[id];
 
-            fill.style.height = `${bottomPos}px`;
-            tracker.style.opacity = "1";
-            tracker.style.bottom = `${bottomPos - 60}px`;
-            setTimeout(() => { tracker.style.opacity = "0"; }, 600);
-
-            document.getElementById('mission-console').innerHTML = contentData[id];
+            if (content instanceof HTMLElement) {
+                consoleEl.appendChild(content);
+            } else {
+                consoleEl.innerHTML = content;
+            }
         }
 
         function switchWidget(pane) {
@@ -1104,7 +1130,7 @@
                     if (mode == "up") {
                         navigateTo(navSections[index + 1].id);
                         break;
-                    }else {
+                    } else {
                         navigateTo(navSections[index - 1].id);
 
                     }
@@ -1114,7 +1140,7 @@
         document.addEventListener("keyup", (e) => {
             if (e.key == 'ArrowUp') {
                 navArr("up");
-            }else if (e.key == "ArrowDown") {
+            } else if (e.key == "ArrowDown") {
                 navArr("down")
             }
         })
