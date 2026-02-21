@@ -63,7 +63,7 @@
         "ct": 1,
         "name": "PySlyphie",
         "sector": "Library",
-        "icon": "ai",
+        "icon": "circuit-board",
         "tech": "Python",
         "view": "pyslyphie.png",
         "deps": [

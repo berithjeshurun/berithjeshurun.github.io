@@ -924,6 +924,29 @@
             window.location.href = link;
             console.log(link);
         }
+
+        function navArr(mode) {
+            for (let index = 0; index < projectData.length; index++) {
+                const element = navSections[index];
+                if (element.id == CurrentView) {
+                    if (mode == "up") {
+                        navigateTo(navSections[index + 1].id);
+                        break;
+                    } else {
+                        navigateTo(navSections[index - 1].id);
+
+                    }
+                }
+            }
+        }
+
+        document.addEventListener("keypress", (e) => {
+            if (e.key == 'ArrowUp') {
+                navArr("up");
+            } else if (e.key == "ArrowDown") {
+                navArr("down")
+            }
+        })
     </script>
 </body>
 
