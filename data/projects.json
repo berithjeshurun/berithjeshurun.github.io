@@ -121,67 +121,131 @@
         ]
     },
     {
-    "id": "grace_ui",
-    "ct": 2,
-    "name": "GRACE",
-    "sector": "Framework",
-    "icon": "monitor",
-    "tech": "Python",
-    "view": "grace_ui.png",
-    "deps": [
-        "Tkinter",
-        "PIL (Pillow)",
-        "Pygame",
-        "Requests",
-        "Keyboard",
-        "Threading"
-    ],
-    "desc": "An advanced Tkinter-based UI framework developed in 2019, featuring multi-layered frames, animated server signals, tile-based app navigation, dynamic image and font handling, threaded network monitoring, and a command-line interface with paste support.",
-    "link_repo": "https://github.com/berithjeshurun/grace",
-    "link_bin": "https://github.com/berithjeshurun/grace/releases/tag/0.1.0",
-    "meta": [
-        {
-            "id": "domain",
-            "values": {
-                "Desktop UI Framework": 95,
-                "Animated Signals": 90,
-                "Tile-Based Navigation": 92,
-                "Command-Line Integration": 88,
-                "Dynamic Asset Loading": 85
+        "id": "grace_ui",
+        "ct": 2,
+        "name": "GRACE",
+        "sector": "Framework",
+        "icon": "monitor",
+        "tech": "Python",
+        "view": "grace_ui.png",
+        "deps": [
+            "Tkinter",
+            "PIL (Pillow)",
+            "Pygame",
+            "Requests",
+            "Keyboard",
+            "Threading"
+        ],
+        "desc": "An advanced Tkinter-based UI framework developed in 2019, featuring multi-layered frames, animated server signals, tile-based app navigation, dynamic image and font handling, threaded network monitoring, and a command-line interface with paste support.",
+        "link_repo": "https://github.com/berithjeshurun/grace",
+        "link_bin": "https://github.com/berithjeshurun/grace/releases/tag/0.1.0",
+        "meta": [
+            {
+                "id": "domain",
+                "values": {
+                    "Desktop UI Framework": 95,
+                    "Animated Signals": 90,
+                    "Tile-Based Navigation": 92,
+                    "Command-Line Integration": 88,
+                    "Dynamic Asset Loading": 85
+                }
+            },
+            {
+                "id": "architecture",
+                "values": {
+                    "Multi-Frame Layout": 95,
+                    "Threaded Network Check": 90,
+                    "Tkinter Event Loop": 95,
+                    "Recursive Animations": 92,
+                    "Tile Toggle System": 88
+                }
+            },
+            {
+                "id": "capabilities",
+                "values": {
+                    "Command Execution": 95,
+                    "Paste Support": 90,
+                    "Server Signal Monitoring": 92,
+                    "Dynamic Image Animations": 95,
+                    "Tile Navigation": 90
+                }
+            },
+            {
+                "id": "languages",
+                "values": {
+                    "Python": 100
+                }
+            },
+            {
+                "id": "maturity",
+                "values": {
+                    "Prototype": 85
+                }
             }
-        },
-        {
-            "id": "architecture",
-            "values": {
-                "Multi-Frame Layout": 95,
-                "Threaded Network Check": 90,
-                "Tkinter Event Loop": 95,
-                "Recursive Animations": 92,
-                "Tile Toggle System": 88
+        ]
+    },
+    {
+        "id": "pyseed_dtypes",
+        "ct": 3,
+        "name": "pyseed_dtypes",
+        "sector": "Library",
+        "icon": "layers",
+        "tech": "Python",
+        "view": "pyseed_dtypes.png",
+        "deps": [
+            "NumPy",
+            "Pillow",
+            "SymPy",
+            "Matplotlib",
+            "Pint",
+            "SciPy"
+        ],
+        "desc": "A rigorous semantic type system bridging raw tensors with domain-specific logic. It features immutable data structures for quantum mechanics, biblical NLP, audio signal processing, and geometry, utilizing strict type enforcement and symbolic integration.",
+        "link_repo": "https://github.com/berithjeshurun/pyseed_dtypes",
+        "link_bin": "https://github.com/berithjeshurun/pyseed_dtypes/releases/tag/1.0.0",
+        "meta": [
+            {
+                "id": "domain",
+                "values": {
+                    "Scientific Computing": 98,
+                    "Computational Theology": 95,
+                    "Quantum Physics": 92,
+                    "Audio Processing": 90,
+                    "Computer Vision": 88
+                }
+            },
+            {
+                "id": "architecture",
+                "values": {
+                    "Immutable Tensors": 100,
+                    "NumPy Wrapper": 98,
+                    "Symbolic Integration": 92,
+                    "Strict Typing": 95,
+                    "Sparse Representation": 85
+                }
+            },
+            {
+                "id": "capabilities",
+                "values": {
+                    "Biblical Syntax Trees": 98,
+                    "Unit-Aware Tensors": 95,
+                    "Quantum State Handling": 92,
+                    "Autodiff (GradTensor)": 88,
+                    "Spectrogram Analysis": 90
+                }
+            },
+            {
+                "id": "languages",
+                "values": {
+                    "Python": 100
+                }
+            },
+            {
+                "id": "maturity",
+                "values": {
+                    "Stable": 90
+                }
             }
-        },
-        {
-            "id": "capabilities",
-            "values": {
-                "Command Execution": 95,
-                "Paste Support": 90,
-                "Server Signal Monitoring": 92,
-                "Dynamic Image Animations": 95,
-                "Tile Navigation": 90
-            }
-        },
-        {
-            "id": "languages",
-            "values": {
-                "Python": 100
-            }
-        },
-        {
-            "id": "maturity",
-            "values": {
-                "Prototype": 85
-            }
-        }
-    ]
-}
+        ]
+    }
 ]
