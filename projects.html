@@ -927,13 +927,13 @@
 
         function navArr(mode) {
             for (let index = 0; index < projectData.length; index++) {
-                const element = navSections[index];
+                const element = projectData[index];
                 if (element.id == CurrentView) {
                     if (mode == "up") {
-                        navigateTo(navSections[index + 1].id);
+                        updateMission(projectData[index + 1].id);
                         break;
                     } else {
-                        navigateTo(navSections[index - 1].id);
+                        updateMission(projectData[index - 1].id);
 
                     }
                 }
