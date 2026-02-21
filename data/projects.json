@@ -1,0 +1,60 @@
+[
+    {
+        "id": "knvectis",
+        "ct": 0,
+        "name": "knvectis",
+        "sector": "Library",
+        "icon": "library",
+        "tech": "Python",
+        "view" : "knvectis.png",
+        "deps": [
+            "RAG",
+            "Knowledge Engine"
+        ],
+        "desc": "A modular traversal and knowledge execution engine for structured object hierarchies.",
+        "link_repo": "https://github.com/berithjeshurun/knvectis",
+        "link_bin": "https://github.com/berithjeshurun/knvectis/releases/tag/0.1.0",
+        "meta": [
+            {
+                "id": "domain",
+                "values": {
+                    "Knowledge Graph": 90,
+                    "Reasoning Engine": 85,
+                    "Structural Traversal": 95,
+                    "RAG Support": 70,
+                    "Vector Infrastructure": 75
+                }
+            },
+            {
+                "id": "architecture",
+                "values": {
+                    "Hierarchical": 95,
+                    "Graph-Based": 85,
+                    "Modular Engine": 90,
+                    "Resolver-Driven": 92
+                }
+            },
+            {
+                "id": "capabilities",
+                "values": {
+                    "Predicate Matching": 95,
+                    "Custom Traversal Modes": 90,
+                    "Contextual Scoring": 80,
+                    "Extensible Object Model": 93
+                }
+            },
+            {
+                "id": "languages",
+                "values": {
+                    "Python": 100
+                }
+            },
+            {
+                "id": "maturity",
+                "values": {
+                    "Prototype": 85
+                }
+            }
+        ]
+    }
+]
