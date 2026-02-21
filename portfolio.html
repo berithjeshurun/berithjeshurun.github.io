@@ -972,6 +972,11 @@
             lucide.createIcons();
             navigateTo('hero');
             updateFavicon();
+
+            if ("glitchos-redirect:portfolio" in localStorage) {
+                navigateTo(localStorage.getItem("glitchos-redirect:portfolio"))
+                localStorage.removeItem("glitchos-redirect:portfolio");
+            }
         }
 
         function navigateTo(id) {
