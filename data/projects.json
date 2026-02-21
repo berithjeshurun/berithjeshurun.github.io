@@ -6,7 +6,7 @@
         "sector": "Library",
         "icon": "library",
         "tech": "Python",
-        "view" : "knvectis.png",
+        "view": "knvectis.png",
         "deps": [
             "RAG",
             "Knowledge Engine",
@@ -42,6 +42,68 @@
                     "Custom Traversal Modes": 90,
                     "Contextual Scoring": 80,
                     "Extensible Object Model": 93
+                }
+            },
+            {
+                "id": "languages",
+                "values": {
+                    "Python": 100
+                }
+            },
+            {
+                "id": "maturity",
+                "values": {
+                    "Prototype": 85
+                }
+            }
+        ]
+    },
+    {
+        "id": "pyslyphie",
+        "ct": 1,
+        "name": "PySlyphie",
+        "sector": "Library",
+        "icon": "ai",
+        "tech": "Python",
+        "view": "pyslyphie.png",
+        "deps": [
+            "LLM",
+            "Modular Tools",
+            "Web APIs",
+            "Async Jobs"
+        ],
+        "desc": "A next-generation, tool-augmented AI framework that allows LLMs to interact dynamically with modules, execute asynchronous tasks, fetch and clean web content, access cameras, and perform advanced network and string operations.",
+        "link_repo": "https://github.com/berithjeshurun/pyslyphie",
+        "link_bin": "https://github.com/berithjeshurun/pyslyphie/releases/tag/0.1.0",
+        "meta": [
+            {
+                "id": "domain",
+                "values": {
+                    "Tool-Augmented AI": 95,
+                    "Web Knowledge Access": 90,
+                    "Network Utilities": 85,
+                    "Camera Integration": 80,
+                    "String Utilities": 80
+                }
+            },
+            {
+                "id": "architecture",
+                "values": {
+                    "Modular Engine": 95,
+                    "Asynchronous Jobs": 90,
+                    "Plugin System": 92,
+                    "LLM Integration": 95,
+                    "Context Updating": 88
+                }
+            },
+            {
+                "id": "capabilities",
+                "values": {
+                    "Dynamic Command Execution": 95,
+                    "Web Scraping & Cleaning": 90,
+                    "Wikipedia & DDG Access": 88,
+                    "Job Tracking & Async Handling": 92,
+                    "Extensible Module Support": 95
                 }
             },
             {
